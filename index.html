@@ -1,0 +1,223 @@
+<div id="glowscript" class="glowscript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link type="text/css" href="https://www.glowscript.org/css/redmond/2.1/jquery-ui.custom.css" rel="stylesheet" />
+<link type="text/css" href="https://www.glowscript.org/css/ide.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+<script type="text/javascript" src="https://www.glowscript.org/package/glow.3.1.min.js"></script>
+<script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.1.min.js"></script>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+
+// START JAVASCRIPT
+;(function() {;
+var ρσ_modules = {};
+ρσ_modules.pythonize = {};
+
+(function(){
+    function strings() {
+        var string_funcs, exclude, name;
+        string_funcs = set("capitalize strip lstrip rstrip islower isupper isspace lower upper swapcase center count endswith startswith find rfind index rindex format join ljust rjust partition rpartition replace split rsplit splitlines zfill".split(" "));
+        if (!arguments.length) {
+            exclude = (function(){
+                var s = ρσ_set();
+                s.jsset.add("split");
+                s.jsset.add("replace");
+                return s;
+            })();
+        } else if (arguments[0]) {
+            exclude = Array.prototype.slice.call(arguments);
+        } else {
+            exclude = null;
+        }
+        if (exclude) {
+            string_funcs = string_funcs.difference(set(exclude));
+        }
+        var ρσ_Iter0 = string_funcs;
+        ρσ_Iter0 = ((typeof ρσ_Iter0[Symbol.iterator] === "function") ? (ρσ_Iter0 instanceof Map ? ρσ_Iter0.keys() : ρσ_Iter0) : Object.keys(ρσ_Iter0));
+        for (var ρσ_Index0 of ρσ_Iter0) {
+            name = ρσ_Index0;
+            (ρσ_expr_temp = String.prototype)[(typeof name === "number" && name < 0) ? ρσ_expr_temp.length + name : name] = (ρσ_expr_temp = ρσ_str.prototype)[(typeof name === "number" && name < 0) ? ρσ_expr_temp.length + name : name];
+        }
+    };
+    if (!strings.__module__) Object.defineProperties(strings, {
+        __module__ : {value: "pythonize"}
+    });
+
+    ρσ_modules.pythonize.strings = strings;
+})();
+async function __main__() {
+"use strict";
+    var display = canvas;
+    var scene = canvas();
+
+    var version, print, arange, __name__, type, ρσ_ls, Mh, Rh, Ms, Rs, M, l, g, v, t, dt, w, theta, Ih, Is, I, h, e, n, th_impact, R, th_temp, width, ReboundHeight, L, scene2, ground, StartLine, init, initial_height, rod, ball1, ball2, capsule, i, i_limit, Para, vap1, j, dv, Height, show_text;
+    version = ρσ_list_decorate([ "3.1", "glowscript" ]);
+    Array.prototype['+'] = function(r) {return this.concat(r)}
+    Array.prototype['*'] = function(r) {return __array_times_number(this, r)}
+    window.__GSlang = "vpython";
+    print = GSprint;
+    arange = range;
+    __name__ = "__main__";
+    type = pytype;
+    var strings = ρσ_modules.pythonize.strings;
+
+    strings();
+    "6";
+    Mh = 2["/"](3);
+    "7";
+    Rh = .6;
+    "8";
+    Ms = 2["*"](2)["/"](3);
+    "9";
+    Rs = .5;
+    "10";
+    M = Mh["+"](Ms);
+    "11";
+    l = Rh["+"](Rs["*"](2));
+    "12";
+    g = 60;
+    "13";
+    v = vector(0, 0, 0);
+    "14";
+    t = 0;
+    "15";
+    dt = 1e-4;
+    "16";
+    w = 0;
+    "17";
+    theta = (await radians(45));
+    "20";
+    Ih = Mh["*"](3["*"](Rs)["*"](Rs)["+"](Rh["*"](Rh)))["/"](12);
+    "21";
+    Is = 2["*"](Ms)["*"](Rs)["*"](Rs)["/"](5)["+"](Ms["*"](Rh["/"](2))["*"](Rh["/"](2)))["+"](.375["*"](Rs)["*"](Ms)["*"](Rh));
+    "22";
+    I = 2["*"](Is)["+"](Ih);
+    "24";
+    print("I =", I);
+    "26";
+    h = 30;
+    "28";
+    e = 1;
+    "29";
+    n = vector(0, 1, 0);
+    "30";
+    th_impact = 0;
+    "31";
+    R = 0;
+    "32";
+    th_temp = 0;
+    "33";
+    width = 30;
+    "34";
+    ReboundHeight = ρσ_list_decorate([]);
+    "35";
+    L = ρσ_list_decorate([]);
+    "37";
+    scene2 = ρσ_interpolate_kwargs.call(this, canvas, [ρσ_desugar_kwargs({width: 1366, height: 720, center: vector(0, 0, 0), background: color.white})]);
+    "38";
+    ground = ρσ_interpolate_kwargs.call(this, curve, [vector(width, 0, 0)].concat([ρσ_desugar_kwargs({pos: vector(width["-u"](), 0, 0), color: color.blue})]));
+    "41";
+    StartLine = ρσ_interpolate_kwargs.call(this, curve, [vector(width, h, 0)].concat([ρσ_desugar_kwargs({pos: vector(width["-u"](), h, 0), color: color.green})]));
+    "42";
+    init = "initial height="["+"](str(h))["+"]("cm ")["+"]("theta=")["+"](str((await degrees(theta))))["+"]("degree");
+    "43";
+    initial_height = ρσ_interpolate_kwargs.call(this, label, [ρσ_desugar_kwargs({pos: vector(10["-u"](), h, 0), text: init, xoffset: 0, yoffset: 0, space: 30, height: 16, border: 4})]);
+    "45";
+    rod = ρσ_interpolate_kwargs.call(this, cylinder, [ρσ_desugar_kwargs({pos: vector(0, 0, 0), axis: vector(Rh, 0, 0), radius: Rs})]);
+    "46";
+    ball1 = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({pos: vector(Rh, 0, 0), radius: Rs})]);
+    "47";
+    ball2 = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({pos: vector(0, 0, 0), radius: Rs})]);
+    "48";
+    capsule = compound(ρσ_list_decorate([ rod, ball1, ball2 ]));
+    "49";
+    capsule.color = color.red;
+    "50";
+    capsule.pos = vector(0, h, 0);
+    "52";
+    ρσ_interpolate_kwargs.call(capsule, capsule.rotate, [ρσ_desugar_kwargs({angle: theta, axis: vector(0, 0, 10)})]);
+    "55";
+    i = 0;
+    "56";
+    i_limit = 4;
+    "57";
+    Para = true;
+    "59";
+    while (i["<"](i_limit)) {
+        "60";
+        v.y=v.y["-"](g["*"](dt));
+        "61";
+        (await rate(1["/"](dt)["/"](3)));
+        "62";
+        theta=theta["+"](w["*"](dt));
+        "63";
+        ρσ_interpolate_kwargs.call(capsule, capsule.rotate, [ρσ_desugar_kwargs({angle: w["*"](dt), axis: vector(0, 0, 1)})]);
+        "64";
+        capsule.pos=capsule.pos["+"](v["*"](dt));
+        "67";
+        if (capsule.pos.y[">"](h) && Para) {
+            "68";
+            print("第", i, "次反彈後超過起始高度");
+            "69";
+            Para = false;
+        }
+        "74";
+        R = sqrt(pow(Rs["*"](abs(sin(theta)))["+"](Rh["/"](2)), 2)["+"](pow(Rs["*"](abs(cos(theta))), 2)));
+        "75";
+        th_temp = acos(pow(R, 2)["+"](pow(Rs, 2))["-"](pow(Rh["/"](2), 2))["/"](2["*"](R)["*"](Rs)));
+        "77";
+        if (theta["%"](pi)["<="](pi["/"](2))) {
+            "78";
+            th_impact = pi["/"](2)["-"](th_temp);
+            "79";
+        } else {
+            "80";
+            th_impact = 2["*"](pi)["-"](pi["/"](2)["+"](th_temp));
+            "83";
+        }
+        if (capsule.pos.y["<"](R["*"](abs(sin(th_impact))))) {
+            "85";
+            capsule.pos.y = R["*"](abs(sin(th_impact)));
+            "87";
+            if (theta["%"](pi)["<="](pi["/"](2))) {
+                "88";
+                vap1 = v["+"](cross(vector(0, 0, w), vector(R["-u"]()["*"](cos(th_impact)), R["-u"]()["*"](sin(th_impact)), 0)));
+                "90";
+            } else {
+                "91";
+                vap1 = v["+"](cross(vector(0, 0, w), vector(R["-u"]()["*"](cos(th_impact)), R["*"](sin(th_impact)), 0)));
+            }
+            "95";
+            j = 1["-u"]()["*"](1["+"](e))["*"](dot(vap1, n))["/"](1["/"](M)["+"](pow(R["*"](cos(th_impact)), 2)["/"](I)));
+            "98";
+            dv = j["*"](n)["/"](M);
+            "99";
+            v = v["+"](dv);
+            "102";
+            w = w["-"](R["*"](j)["*"](cos(th_impact))["/"](I));
+            "105";
+            i=i["+"](1);
+            "106";
+            print("第幾次碰撞完i=", i, "角速度w=", w, "撞擊點相對速度vap1=", vap1, "正向力衝量j=", j, "v=", v, "撞擊角th_impact=", th_impact);
+            "109";
+            Height = v.y["*"](v.y)["/"](2)["/"](g)["+"](R["*"](abs(sin(th_impact))));
+            "110";
+            show_text = "bounce "["+"](str(i))["+"](" height=")["+"](str(round(Height["*"](1e3))["/"](1e3)))["+"]("cm");
+            "112";
+            ReboundHeight.append(ρσ_interpolate_kwargs.call(this, curve, [vector(width, Height, 0)].concat([ρσ_desugar_kwargs({pos: vector(width["-u"](), Height, 0), color: color.rgb_to_hsv(vector(i["/"](i_limit), 1, 1))})])));
+            "113";
+            L.append(ρσ_interpolate_kwargs.call(this, label, [ρσ_desugar_kwargs({pos: vector(10, Height, 0), text: show_text, xoffset: 0, yoffset: 0, space: 30, height: 16, border: 4})]));
+        }
+        "117";
+        t=t["+"](dt);
+    }
+};
+if (!__main__.__module__) Object.defineProperties(__main__, {
+    __module__ : {value: null}
+});
+
+;$(function(){ window.__context = { glowscript_container: $("#glowscript").removeAttr("id") }; __main__() })})()
+// END JAVASCRIPT
+
+//--><!]]></script>
+</div>
